@@ -8,12 +8,11 @@
 	<name>bootjx-extjar</name>
 	<description>Common lib for  db</description>
 	<url>http://maven.apache.org</url>
-	<version>0.0.3-SNAPSHOT</version>
 
 	<parent>
 		<groupId>com.boot.jx</groupId>
 		<artifactId>bootjx-parent</artifactId>
-		<version>0.0.3-SNAPSHOT</version>
+		<version>3.0.3-SNAPSHOT</version>
 	</parent>
 
 	<properties>
