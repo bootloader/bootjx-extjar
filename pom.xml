@@ -6,7 +6,7 @@
 	<artifactId>bootjx-extjar</artifactId>
 	<packaging>pom</packaging>
 	<name>bootjx-extjar</name>
-	<description>Common lib for  db</description>
+	<description>Common lib for db</description>
 	<url>http://maven.apache.org</url>
 
 	<parent>
@@ -39,11 +39,26 @@
 							<artifactId>java-expr-eval</artifactId>
 							<version>v3.1.local</version>
 							<packaging>jar</packaging>
-							<file>${basedir}/lib/com.github.gianluca-nitti/java-expr-eval-v3.1.jar</file>
+							<file>
+								${basedir}/lib/com.github.gianluca-nitti/java-expr-eval-v3.1.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
-
+					<execution>
+						<id>ojdbc11</id>
+						<phase>package</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<groupId>com.oracle</groupId>
+							<artifactId>ojdbc11</artifactId>
+							<version>23.2.0.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/lib/ojdbc11.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
