@@ -61,6 +61,56 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>java-expr-eval</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy-file</goal>
+						</goals>
+						<configuration>
+							<repositoryId>bootloader</repositoryId>
+							<url>https://maven.pkg.github.com/bootloader/bootloader.github.io</url>
+							<groupId>com.github.gianluca-nitti</groupId>
+							<artifactId>java-expr-eval</artifactId>
+							<version>v3.1.local</version>
+							<packaging>jar</packaging>
+							<file>
+								${basedir}/lib/com.github.gianluca-nitti/java-expr-eval-v3.1.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>ojdbc11</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy-file</goal>
+						</goals>
+						<configuration>
+							<repositoryId>bootloader</repositoryId>
+							<url>https://maven.pkg.github.com/bootloader/bootloader.github.io</url>
+							<groupId>com.oracle</groupId>
+							<artifactId>ojdbc11</artifactId>
+							<version>23.2.0.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/lib/ojdbc11.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+			<repository>
+				<id>bootloader</id>
+				<url>https://maven.pkg.github.com/bootloader/bootloader.github.io</url>
+				<snapshots>
+					<enabled>true</enabled>
+				</snapshots>
+			</repository>
+		</distributionManagement>
 </project>
