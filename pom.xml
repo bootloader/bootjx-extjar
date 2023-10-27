@@ -61,6 +61,8 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!--To deploy new artifact or already existing artifact with different version, add new execution or modify existing
+			then comment the rest execution blocks and run "mvn deploy -DskipTest"-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
@@ -97,6 +99,23 @@
 							<version>23.2.0.0.0</version>
 							<packaging>jar</packaging>
 							<file>${basedir}/lib/ojdbc11.jar</file>
+							<generatePom>true</generatePom>
+						</configuration>
+					</execution>
+					<execution>
+						<id>orai18n</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy-file</goal>
+						</goals>
+						<configuration>
+							<repositoryId>bootloader</repositoryId>
+							<url>https://maven.pkg.github.com/bootloader/bootloader.github.io</url>
+							<groupId>com.oracle</groupId>
+							<artifactId>orai18n</artifactId>
+							<version>23.2.0.0.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/lib/orai18n.jar</file>
 							<generatePom>true</generatePom>
 						</configuration>
 					</execution>
